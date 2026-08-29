@@ -3,145 +3,741 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C.O Games</title>
+
+  <title>C.O Games — каталог игр</title>
 
   <style>
-    body {
-      margin: 0;
-      background: #171a21;
-      color: white;
-      font-family: Arial, sans-serif;
+    * {
+      box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #0d1015;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* =========================
+       ШАПКА
+    ========================= */
+
     header {
-      background: #101216;
-      padding: 20px;
-      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(13, 16, 21, 0.95);
+      border-bottom: 1px solid #252b35;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      width: 90%;
+      max-width: 1250px;
+      margin: auto;
+
+      min-height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .welcome {
-      background: #202936;
-      padding: 35px;
-      border-radius: 10px;
-      margin-bottom: 35px;
-    }
-
-    .welcome h1 {
-      margin-top: 0;
-    }
-
-    .welcome p {
-      color: #c7d5e0;
-      line-height: 1.6;
-    }
-
-    .games {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .game {
-      background: #20242c;
-      border-radius: 8px;
-      overflow: hidden;
+      color: #ffffff;
       text-decoration: none;
-      color: white;
+
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 1px;
+
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #7aa7ff;
+    }
+
+    .search {
+      width: 100%;
+      max-width: 400px;
+
+      padding: 12px 17px;
+
+      border: 1px solid #303744;
+      border-radius: 7px;
+
+      background: #191e27;
+      color: #ffffff;
+
+      outline: none;
+      font-size: 15px;
+
       transition: 0.2s;
     }
 
+    .search:focus {
+      border-color: #657fae;
+      background: #1d232d;
+    }
+
+    /* =========================
+       ОСНОВА
+    ========================= */
+
+    main {
+      width: 90%;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    /* =========================
+       ГЛАВНЫЙ БАННЕР
+    ========================= */
+
+    .hero {
+      min-height: 430px;
+
+      margin-top: 30px;
+
+      border-radius: 14px;
+
+      position: relative;
+      overflow: hidden;
+
+      display: flex;
+      align-items: flex-end;
+
+      background:
+        radial-gradient(
+          circle at 75% 35%,
+          #34435a 0%,
+          #1b2431 35%,
+          #10151d 70%,
+          #090b0f 100%
+        );
+
+      border: 1px solid #29313d;
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(5, 7, 10, 0.95),
+          rgba(5, 7, 10, 0.15)
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      padding: 45px;
+      max-width: 700px;
+    }
+
+    .hero-label {
+      color: #9fb9e8;
+
+      font-size: 13px;
+      font-weight: bold;
+
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.05;
+
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      color: #c4ccd7;
+
+      line-height: 1.7;
+      font-size: 16px;
+
+      margin: 0;
+
+      max-width: 620px;
+    }
+
+    .hero-button {
+      display: inline-block;
+
+      margin-top: 25px;
+
+      padding: 12px 20px;
+
+      border-radius: 6px;
+
+      background: #2b3442;
+      border: 1px solid #465366;
+
+      color: white;
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: bold;
+
+      transition: 0.2s;
+    }
+
+    .hero-button:hover {
+      background: #384556;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       СЕКЦИИ
+    ========================= */
+
+    section {
+      margin-top: 55px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 20px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+
+      font-size: 27px;
+    }
+
+    .section-title span {
+      color: #707b8b;
+      font-size: 13px;
+    }
+
+    /* =========================
+       КАТЕГОРИИ
+    ========================= */
+
+    .categories {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 14px;
+    }
+
+    .category {
+      padding: 20px;
+
+      border-radius: 8px;
+
+      background: #171c24;
+      border: 1px solid #272e38;
+
+      color: #d4dbe4;
+
+      text-align: center;
+
+      font-weight: bold;
+
+      transition: 0.2s;
+    }
+
+    .category:hover {
+      background: #202732;
+      border-color: #3b4655;
+
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       ИГРЫ
+    ========================= */
+
+    .games {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+
+      gap: 22px;
+    }
+
+    .game {
+      display: block;
+
+      background: #171c24;
+
+      border: 1px solid #272e38;
+
+      border-radius: 9px;
+
+      overflow: hidden;
+
+      text-decoration: none;
+      color: white;
+
+      transition:
+        transform 0.25s,
+        background 0.25s,
+        border-color 0.25s;
+
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
     .game:hover {
-      transform: translateY(-4px);
-      background: #292e38;
+      transform: translateY(-6px);
+
+      background: #1d232d;
+
+      border-color: #465365;
     }
 
     .cover {
-      height: 280px;
-      background: #303b4d;
+      height: 300px;
+
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+
       text-align: center;
-      font-weight: bold;
-      padding: 15px;
+
+      padding: 20px;
+
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          #3b4758,
+          #202a37 45%,
+          #0d1117 100%
+        );
+
+      color: #ffffff;
+
+      font-size: 20px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      position: relative;
     }
 
-    .info {
-      padding: 15px;
+    .cover::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          transparent 50%,
+          rgba(255,255,255,0.03)
+        );
     }
 
-    .info h3 {
-      margin: 0 0 8px;
+    .game-info {
+      padding: 17px;
     }
 
-    .info p {
+    .game-info h3 {
+      margin: 0 0 9px;
+
+      font-size: 17px;
+    }
+
+    .game-info p {
       margin: 0;
-      color: #9aa5b1;
-      font-size: 14px;
+
+      color: #8994a3;
+
+      font-size: 13px;
     }
+
+    .status {
+      display: inline-block;
+
+      margin-top: 13px;
+
+      padding: 5px 8px;
+
+      border-radius: 4px;
+
+      background: #222a35;
+
+      color: #9eabbc;
+
+      font-size: 11px;
+    }
+
+    /* =========================
+       ИНФОРМАЦИОННЫЙ БЛОК
+    ========================= */
+
+    .about {
+      background: #151a22;
+
+      border: 1px solid #272e38;
+
+      border-radius: 10px;
+
+      padding: 30px;
+    }
+
+    .about h2 {
+      margin-top: 0;
+    }
+
+    .about p {
+      max-width: 850px;
+
+      color: #aeb8c5;
+
+      line-height: 1.8;
+    }
+
+    /* =========================
+       ФУТЕР
+    ========================= */
 
     footer {
+      margin-top: 80px;
+
+      padding: 35px 20px;
+
       text-align: center;
-      padding: 40px;
-      color: #78838f;
+
+      background: #090c10;
+
+      border-top: 1px solid #202630;
+
+      color: #687382;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       ТЕЛЕФОН
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      .header-inner {
+        flex-direction: column;
+
+        padding: 15px 0;
+      }
+
+      .search {
+        max-width: none;
+      }
+
+      .hero {
+        min-height: 400px;
+      }
+
+      .hero-content {
+        padding: 30px;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .categories {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      main {
+        width: 92%;
+      }
+
+      .hero {
+        min-height: 430px;
+      }
+
+      .hero-content {
+        padding: 25px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+
+      .games {
+        grid-template-columns: 1fr;
+      }
+
+      .cover {
+        height: 350px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- =========================
+       ШАПКА
+  ========================= -->
+
   <header>
-    <div class="logo">C.O Games</div>
-  </header>
 
-  <main>
+    <div class="header-inner">
 
-    <section class="welcome">
-      <h1>Добро пожаловать в C.O Games</h1>
-
-      <p>
-        Каталог компьютерных игр.
-        Здесь можно узнавать об играх,
-        смотреть скриншоты и трейлеры.
-      </p>
-    </section>
-
-    <h2>Игры</h2>
-
-    <div class="games">
-
-      <a class="game" href="oblivion.html">
-
-        <div class="cover">
-          OBLIVION:<br>
-          CLOSED FOREVER
-        </div>
-
-        <div class="info">
-          <h3>Oblivion: Closed Forever</h3>
-          <p>Хоррор • EverBright Industries</p>
-        </div>
-
+      <a class="logo" href="index.html">
+        C.O <span>Games</span>
       </a>
+
+      <input
+        class="search"
+        type="text"
+        placeholder="Поиск игр..."
+        oninput="searchGames(this.value)"
+      >
 
     </div>
 
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         ГЛАВНЫЙ БАННЕР
+    ========================= -->
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-label">
+          Игра месяца
+        </div>
+
+        <h1>
+          Oblivion:<br>
+          Closed Forever
+        </h1>
+
+        <p>
+          Добро пожаловать в C.O Games —
+          каталог игр, где можно узнать больше
+          о любимых проектах и открыть для себя новые.
+        </p>
+
+        <a
+          class="hero-button"
+          href="oblivion.html"
+        >
+          Подробнее об игре
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         КАТЕГОРИИ
+    ========================= -->
+
+    <section>
+
+      <div class="section-title">
+
+        <h2>
+          Категории
+        </h2>
+
+        <span>
+          Выберите жанр
+        </span>
+
+      </div>
+
+
+      <div class="categories">
+
+        <div class="category">
+          Хоррор
+        </div>
+
+        <div class="category">
+          Приключения
+        </div>
+
+        <div class="category">
+          Экшен
+        </div>
+
+        <div class="category">
+          Инди
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         НОВЫЕ ИГРЫ
+    ========================= -->
+
+    <section>
+
+      <div class="section-title">
+
+        <h2>
+          Новые игры
+        </h2>
+
+        <span>
+          1 игра
+        </span>
+
+      </div>
+
+
+      <div class="games">
+
+        <a
+          class="game"
+          href="oblivion.html"
+        >
+
+          <div class="cover">
+
+            OBLIVION:<br>
+            CLOSED FOREVER
+
+          </div>
+
+
+          <div class="game-info">
+
+            <h3>
+              Oblivion: Closed Forever
+            </h3>
+
+            <p>
+              Хоррор • EverBright Industries
+            </p>
+
+            <span class="status">
+              В разработке
+            </span>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         О C.O GAMES
+    ========================= -->
+
+    <section>
+
+      <div class="about">
+
+        <h2>
+          О C.O Games
+        </h2>
+
+        <p>
+          C.O Games — игровой каталог, созданный
+          для просмотра информации об играх.
+          Здесь будут появляться новые проекты,
+          страницы игр, скриншоты, трейлеры,
+          описания и другая информация.
+        </p>
+
+      </div>
+
+    </section>
+
   </main>
 
+
+  <!-- =========================
+       ФУТЕР
+  ========================= -->
+
   <footer>
+
     © 2026 C.O Games
+
   </footer>
+
+
+  <script>
+
+    function searchGames(text) {
+
+      const games =
+        document.querySelectorAll(".game");
+
+      const query =
+        text.toLowerCase().trim();
+
+
+      games.forEach(game => {
+
+        const title =
+          game.querySelector("h3")
+            .textContent
+            .toLowerCase();
+
+        if (title.includes(query)) {
+
+          game.style.display = "";
+
+        } else {
+
+          game.style.display = "none";
+
+        }
+
+      });
+
+    }
+
+  </script>
 
 </body>
 </html>
