@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Oblivion: Closed Forever — C.O Games</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #171a21;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #101216;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .back {
+      color: #c7d5e0;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .back:hover {
+      color: white;
+    }
+
+    main {
+      width: 88%;
+      max-width: 1200px;
+      margin: 35px auto 70px;
+    }
+
+    .game-title {
+      margin-bottom: 25px;
+    }
+
+    .game-title h1 {
+      font-size: 42px;
+      margin: 0 0 10px;
+    }
+
+    .game-title p {
+      color: #9aa5b1;
+      margin: 0;
+    }
+
+    .game-top {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .cover {
+      width: 100%;
+      min-height: 430px;
+      border-radius: 8px;
+
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          #3c4657 0%,
+          #1b2029 45%,
+          #090b0f 100%
+        );
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 2px;
+
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+    }
+
+    .game-info {
+      color: #c7d5e0;
+    }
+
+    .game-info h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: white;
+    }
+
+    .short-description {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .info-list {
+      background: #20242c;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .info-row {
+      margin-bottom: 13px;
+      line-height: 1.5;
+    }
+
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-row strong {
+      color: #ffffff;
+    }
+
+    section {
+      margin-top: 50px;
+    }
+
+    section h2 {
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .description {
+      color: #c7d5e0;
+      line-height: 1.8;
+      font-size: 16px;
+      max-width: 900px;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .screenshot {
+      height: 190px;
+      border-radius: 8px;
+
+      background:
+        linear-gradient(135deg, #303a49, #171c24);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #8d99a8;
+      font-size: 14px;
+    }
+
+    .trailer {
+      width: 100%;
+      height: 360px;
+
+      background: #0d0f13;
+      border-radius: 8px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #78838f;
+      text-align: center;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: #252a33;
+      color: #c7d5e0;
+
+      padding: 9px 15px;
+
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .rating-box {
+      background: #20242c;
+      border-radius: 8px;
+
+      padding: 25px;
+
+      max-width: 500px;
+    }
+
+    .rating-number {
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .rating-text {
+      color: #9aa5b1;
+    }
+
+    footer {
+      background: #101216;
+
+      padding: 35px;
+
+      text-align: center;
+
+      color: #78838f;
+    }
+
+    @media (max-width: 750px) {
+
+      header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .logo {
+        text-align: center;
+      }
+
+      .back {
+        text-align: center;
+      }
+
+      main {
+        width: 92%;
+      }
+
+      .game-top {
+        grid-template-columns: 1fr;
+      }
+
+      .game-title h1 {
+        font-size: 32px;
+      }
+
+      .cover {
+        min-height: 330px;
+        font-size: 25px;
+      }
+
+      .screenshots {
+        grid-template-columns: 1fr;
+      }
+
+      .trailer {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <a class="logo" href="index.html">
+      C.O Games
+    </a>
+
+    <a class="back" href="index.html">
+      ← Вернуться в каталог
+    </a>
+
+  </header>
+
+
+  <main>
+
+    <div class="game-title">
+
+      <h1>
+        Oblivion: Closed Forever
+      </h1>
+
+      <p>
+        Страница игры в каталоге C.O Games
+      </p>
+
+    </div>
+
+
+    <div class="game-top">
+
+      <div class="cover">
+
+        OBLIVION:<br>
+        CLOSED FOREVER
+
+      </div>
+
+
+      <div class="game-info">
+
+        <h2>
+          Об игре
+        </h2>
+
+        <p class="short-description">
+
+          Заброшенный развлекательный комплекс.
+          Старые роботы.
+          Странные события.
+          И тайна, которую кто-то пытался скрыть.
+
+        </p>
+
+
+        <div class="info-list">
+
+          <div class="info-row">
+            <strong>Жанр:</strong>
+            Хоррор
+          </div>
+
+          <div class="info-row">
+            <strong>Разработчик:</strong>
+            EverBright Industries
+          </div>
+
+          <div class="info-row">
+            <strong>Дата выпуска:</strong>
+            В разработке
+          </div>
+
+          <div class="info-row">
+            <strong>Статус:</strong>
+            В разработке
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <section>
+
+      <h2>
+        Описание
+      </h2>
+
+      <p class="description">
+
+        EverBright Expo Center когда-то был огромным
+        развлекательным комплексом.
+
+        После загадочного происшествия комплекс был закрыт.
+
+        Спустя годы внутри всё ещё остаются старые
+        роботы, заброшенные помещения и следы прошлого.
+
+        Но самое главное — некоторые системы комплекса
+        продолжают работать.
+
+        Что произошло внутри EverBright Expo Center?
+
+        И почему некоторые роботы больше не подчиняются
+        своим создателям?
+
+      </p>
+
+    </section>
+
+
+    <section>
+
+      <h2>
+        Скриншоты
+      </h2>
+
+      <div class="screenshots">
+
+        <div class="screenshot">
+          Скриншот 1
+        </div>
+
+        <div class="screenshot">
+          Скриншот 2
+        </div>
+
+        <div class="screenshot">
+          Скриншот 3
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <h2>
+        Трейлер
+      </h2>
+
+      <div class="trailer">
+
+        Трейлер игры будет добавлен позже
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <h2>
+        Жанры
+      </h2>
+
+      <div class="tags">
+
+        <div class="tag">
+          Хоррор
+        </div>
+
+        <div class="tag">
+          Приключение
+        </div>
+
+        <div class="tag">
+          Выживание
+        </div>
+
+        <div class="tag">
+          Загадки
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <h2>
+        Рейтинг
+      </h2>
+
+      <div class="rating-box">
+
+        <div class="rating-number">
+          ★ —
+        </div>
+
+        <div class="rating-text">
+          Рейтинг пока не установлен
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    © 2026 C.O Games
+
+  </footer>
+
+</body>
+</html>
