@@ -148,6 +148,7 @@
       color: #aeb8c5;
       line-height: 1.8;
       font-size: 16px;
+      white-space: pre-line;
     }
 
     .screenshots {
@@ -156,29 +157,41 @@
       gap: 15px;
     }
 
-    .screenshot {
+    .screenshots a {
       height: 190px;
       border-radius: 8px;
-      background: linear-gradient(135deg, #303a49, #171c24);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #7e8998;
-      font-size: 14px;
+      overflow: hidden;
+      display: block;
+      background: #171c24;
+      border: 1px solid #292f38;
+    }
+
+    .screenshots a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .screenshots a:hover img {
+      transform: scale(1.04);
     }
 
     .trailer {
       width: 100%;
-      min-height: 350px;
       background: #090b0f;
       border: 1px solid #252b35;
       border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #687382;
-      text-align: center;
-      padding: 20px;
+      padding: 12px;
+    }
+
+    .trailer video {
+      width: 100%;
+      max-height: 650px;
+      display: block;
+      border-radius: 5px;
+      background: #000000;
     }
 
     .tags {
@@ -253,8 +266,8 @@
         grid-template-columns: 1fr;
       }
 
-      .trailer {
-        min-height: 240px;
+      .screenshots a {
+        height: 230px;
       }
     }
 
@@ -269,6 +282,10 @@
 
       .game-title h1 {
         font-size: 29px;
+      }
+
+      section h2 {
+        font-size: 24px;
       }
     }
   </style>
@@ -293,33 +310,25 @@
   <main>
 
     <div class="game-title">
-
-      <h1>
-        Oblivion: Closed Forever
-      </h1>
+      <h1>Oblivion: Closed Forever</h1>
 
       <p>
         Страница игры в каталоге C.O Games
       </p>
-
     </div>
 
     <div class="game-top">
 
       <div class="cover">
-
         <img
           src="Picsart_26-09-07_08-36-47-053.jpg"
           alt="Обложка Oblivion: Closed Forever"
         >
-
       </div>
 
       <div class="game-info">
 
-        <h2>
-          Об игре
-        </h2>
+        <h2>Об игре</h2>
 
         <p class="short-description">
           Заброшенный развлекательный комплекс.
@@ -357,103 +366,83 @@
     </div>
 
     <section>
+      <h2>Описание</h2>
 
-      <h2>
-        Описание
-      </h2>
+      <p class="description">EverBright Expo Center когда-то был огромным
+развлекательным комплексом.
 
-      <p class="description">
-        EverBright Expo Center когда-то был огромным
-        развлекательным комплексом.
+После загадочного происшествия комплекс был закрыт.
 
-        После загадочного происшествия комплекс был закрыт.
+Спустя годы внутри всё ещё остаются старые
+роботы, заброшенные помещения и следы прошлого.
 
-        Спустя годы внутри всё ещё остаются старые
-        роботы, заброшенные помещения и следы прошлого.
+Но самое главное — некоторые системы комплекса
+продолжают работать.
 
-        Но самое главное — некоторые системы комплекса
-        продолжают работать.
+Что произошло внутри EverBright Expo Center?
 
-        Что произошло внутри EverBright Expo Center?
-
-        И почему некоторые роботы больше не подчиняются
-        своим создателям?
-      </p>
-
+И почему некоторые роботы больше не подчиняются
+своим создателям?</p>
     </section>
 
     <section>
-
-      <h2>
-        Скриншоты
-      </h2>
+      <h2>Скриншоты</h2>
 
       <div class="screenshots">
 
-        <div class="screenshot">
-          Скриншот 1
-        </div>
+        <a href="IMG_20260910_144350_610.jpg" target="_blank">
+          <img
+            src="IMG_20260910_144350_610.jpg"
+            alt="Скриншот 1"
+          >
+        </a>
 
-        <div class="screenshot">
-          Скриншот 2
-        </div>
+        <a href="IMG_20260910_144328_690.jpg" target="_blank">
+          <img
+            src="IMG_20260910_144328_690.jpg"
+            alt="Скриншот 2"
+          >
+        </a>
 
-        <div class="screenshot">
-          Скриншот 3
-        </div>
+        <a href="IMG_20260910_144353_764.jpg" target="_blank">
+          <img
+            src="IMG_20260910_144353_764.jpg"
+            alt="Скриншот 3"
+          >
+        </a>
 
       </div>
-
     </section>
 
     <section>
-
-      <h2>
-        Трейлер
-      </h2>
+      <h2>Трейлер</h2>
 
       <div class="trailer">
-        Трейлер игры будет добавлен позже
+        <video controls preload="metadata">
+          <source
+            src="YouCut_20260911_124924156.mp4"
+            type="video/mp4"
+          >
+          Ваш браузер не поддерживает видео.
+        </video>
       </div>
-
     </section>
 
     <section>
-
-      <h2>
-        Жанры
-      </h2>
+      <h2>Жанры</h2>
 
       <div class="tags">
-
-        <div class="tag">
-          Хоррор
-        </div>
-
-        <div class="tag">
-          Приключение
-        </div>
-
-        <div class="tag">
-          Выживание
-        </div>
-
-        <div class="tag">
-          Загадки
-        </div>
-
+        <div class="tag">Хоррор</div>
+        <div class="tag">Приключение</div>
+        <div class="tag">Выживание</div>
+        <div class="tag">Загадки</div>
       </div>
-
     </section>
 
     <section>
-
-      <h2>
-        Рейтинг
-      </h2>
+      <h2>Рейтинг</h2>
 
       <div class="rating-box">
-
         <div class="rating-number">
           ★ —
         </div>
@@ -461,9 +450,7 @@
         <div class="rating-text">
           Рейтинг пока не установлен
         </div>
-
       </div>
-
     </section>
 
   </main>
