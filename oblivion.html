@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>C.O Games — Каталог игр</title>
+  <title>Oblivion: Closed Forever — Chapter 1: No Visitors</title>
 
   <style>
     * {
@@ -22,9 +22,6 @@
       background: #101216;
       border-bottom: 1px solid #252b35;
       padding: 18px 6%;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     .header-inner {
@@ -33,176 +30,214 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 20px;
     }
 
     .logo {
       color: white;
       text-decoration: none;
-      font-size: 26px;
+      font-size: 25px;
       font-weight: bold;
-      white-space: nowrap;
     }
 
     .logo span {
       color: #7aa7ff;
     }
 
-    .search {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .search input {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 6px;
-      border: 1px solid #303846;
-      background: #171c24;
-      color: white;
-      outline: none;
+    .back {
+      color: #aeb8c5;
+      text-decoration: none;
       font-size: 14px;
     }
 
-    .search input:focus {
-      border-color: #7aa7ff;
+    .back:hover {
+      color: white;
     }
 
     main {
       width: 90%;
       max-width: 1200px;
-      margin: 40px auto 70px;
+      margin: 35px auto 70px;
     }
 
-    .welcome {
-      margin-bottom: 45px;
+    .game-title {
+      margin-bottom: 30px;
     }
 
-    .welcome h1 {
-      font-size: 38px;
-      margin: 0 0 12px;
+    .game-title h1 {
+      margin: 0 0 10px;
+      font-size: 42px;
+      line-height: 1.25;
     }
 
-    .welcome p {
-      color: #8d99a8;
-      font-size: 16px;
-      line-height: 1.6;
+    .game-title p {
       margin: 0;
+      color: #7f8b9a;
     }
 
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .section-title h2 {
-      font-size: 27px;
-      margin: 0;
-    }
-
-    .games-grid {
+    .game-top {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 30px;
+      align-items: start;
     }
 
-    .game-card {
-      display: block;
-      text-decoration: none;
-      color: white;
-      background: #171c24;
-      border: 1px solid #292f39;
+    .cover {
+      width: 100%;
+      height: 560px;
       border-radius: 10px;
       overflow: hidden;
-      transition: 0.25s;
-    }
-
-    .game-card:hover {
-      transform: translateY(-5px);
-      border-color: #607da8;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .game-cover {
-      width: 100%;
-      height: 310px;
       background: #090b0f;
-      overflow: hidden;
+      border: 1px solid #292f38;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
     }
 
-    .game-cover img {
+    .cover img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .game-info {
+      color: #c7d0dc;
+    }
+
+    .game-info h2 {
+      margin-top: 0;
+      color: white;
+      font-size: 25px;
+    }
+
+    .short-description {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 25px;
+    }
+
+    .info-list {
+      background: #171c24;
+      border: 1px solid #272e38;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .info-row {
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-row strong {
+      color: white;
+    }
+
+    section {
+      margin-top: 55px;
+    }
+
+    section h2 {
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .description {
+      max-width: 900px;
+      color: #aeb8c5;
+      line-height: 1.8;
+      font-size: 16px;
+      white-space: pre-line;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .screenshots a {
+      height: 190px;
+      border-radius: 8px;
+      overflow: hidden;
+      display: block;
+      background: #171c24;
+      border: 1px solid #292f38;
+    }
+
+    .screenshots a img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: 0.2s;
     }
 
-    .game-content {
-      padding: 18px;
+    .screenshots a:hover img {
+      transform: scale(1.04);
     }
 
-    .game-content h3 {
-      margin: 0 0 10px;
-      font-size: 19px;
-      line-height: 1.4;
+    .trailer {
+      width: 100%;
+      background: #090b0f;
+      border: 1px solid #252b35;
+      border-radius: 8px;
+      padding: 12px;
     }
 
-    .game-content p {
-      margin: 0 0 15px;
-      color: #8995a5;
+    .trailer video {
+      width: 100%;
+      max-height: 650px;
+      display: block;
+      border-radius: 5px;
+      background: #000000;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 9px 15px;
+      background: #202631;
+      border: 1px solid #303846;
+      border-radius: 5px;
+      color: #c4ccd7;
       font-size: 14px;
-      line-height: 1.5;
     }
 
-    .game-status {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 4px;
-      background: #202a38;
-      color: #9dbbff;
-      font-size: 12px;
+    .rating-box {
+      max-width: 500px;
+      background: #171c24;
+      border: 1px solid #272e38;
+      border-radius: 8px;
+      padding: 25px;
     }
 
-    .about {
-      margin-top: 65px;
-      max-width: 800px;
+    .rating-number {
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    .about h2 {
-      font-size: 27px;
-      margin-bottom: 15px;
-    }
-
-    .about p {
-      color: #9ba6b4;
-      line-height: 1.8;
-      font-size: 15px;
+    .rating-text {
+      color: #7f8b9a;
     }
 
     footer {
+      padding: 35px 20px;
       background: #090c10;
       border-top: 1px solid #202630;
-      padding: 30px 20px;
       text-align: center;
       color: #687382;
       font-size: 13px;
     }
 
-    .no-results {
-      display: none;
-      color: #7f8b9a;
-      padding: 20px 0;
-    }
-
-    @media (max-width: 900px) {
-      .games-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 800px) {
       .header-inner {
         flex-direction: column;
         align-items: stretch;
@@ -212,20 +247,46 @@
         text-align: center;
       }
 
-      .search {
-        max-width: none;
+      .back {
+        text-align: center;
       }
 
-      .welcome h1 {
-        font-size: 30px;
-      }
-
-      .games-grid {
+      .game-top {
         grid-template-columns: 1fr;
       }
 
-      .game-cover {
-        height: 380px;
+      .game-title h1 {
+        font-size: 32px;
+      }
+
+      .cover {
+        height: 500px;
+      }
+
+      .screenshots {
+        grid-template-columns: 1fr;
+      }
+
+      .screenshots a {
+        height: 230px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      main {
+        width: 92%;
+      }
+
+      .cover {
+        height: 450px;
+      }
+
+      .game-title h1 {
+        font-size: 29px;
+      }
+
+      section h2 {
+        font-size: 24px;
       }
     }
   </style>
@@ -240,121 +301,169 @@
         C.O <span>Games</span>
       </a>
 
-      <div class="search">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Поиск игр..."
-        >
-      </div>
+      <a class="back" href="index.html">
+        ← Вернуться в каталог
+      </a>
 
     </div>
   </header>
 
   <main>
 
-    <div class="welcome">
-      <h1>Каталог игр</h1>
+    <div class="game-title">
+      <h1>Oblivion: Closed Forever — Chapter 1: No Visitors</h1>
 
       <p>
-        Добро пожаловать в C.O Games — каталог авторских
-        игровых проектов и хоррор-историй.
+        Страница игры в каталоге C.O Games
       </p>
     </div>
 
-    <div class="section-title">
-      <h2>Все игры</h2>
+    <div class="game-top">
+
+      <div class="cover">
+        <img
+          src="Picsart_26-09-07_08-36-47-053.jpg"
+          alt="Обложка Oblivion: Closed Forever"
+        >
+      </div>
+
+      <div class="game-info">
+
+        <h2>Об игре</h2>
+
+        <p class="short-description">
+          Заброшенный развлекательный комплекс.
+          Старые роботы.
+          Странные события.
+          И тайна, которую кто-то пытался скрыть.
+        </p>
+
+        <div class="info-list">
+
+          <div class="info-row">
+            <strong>Глава:</strong>
+            Chapter 1: No Visitors
+          </div>
+
+          <div class="info-row">
+            <strong>Жанр:</strong>
+            Хоррор
+          </div>
+
+          <div class="info-row">
+            <strong>Разработчик:</strong>
+            EverBright Industries
+          </div>
+
+          <div class="info-row">
+            <strong>Дата выпуска:</strong>
+            В разработке
+          </div>
+
+          <div class="info-row">
+            <strong>Статус:</strong>
+            В разработке
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="games-grid" id="gamesGrid">
+    <section>
+      <h2>Описание</h2>
 
-      <a
-        class="game-card"
-        href="oblivion.html"
-        data-title="oblivion closed forever chapter 1 no visitors"
-      >
+      <p class="description">EverBright Expo Center когда-то был огромным
+развлекательным комплексом.
 
-        <div class="game-cover">
+После загадочного происшествия комплекс был закрыт.
+
+Спустя годы внутри всё ещё остаются старые
+роботы, заброшенные помещения и следы прошлого.
+
+Но самое главное — некоторые системы комплекса
+продолжают работать.
+
+Что произошло внутри EverBright Expo Center?
+
+И почему некоторые роботы больше не подчиняются
+своим создателям?</p>
+    </section>
+
+    <section>
+      <h2>Скриншоты</h2>
+
+      <div class="screenshots">
+
+        <a href="IMG_20260910_144350_610.jpg" target="_blank">
           <img
-            src="Picsart_26-09-07_08-36-47-053.jpg"
-            alt="Oblivion: Closed Forever — Chapter 1: No Visitors"
+            src="IMG_20260910_144350_610.jpg"
+            alt="Скриншот 1"
           >
+        </a>
+
+        <a href="IMG_20260910_144328_690.jpg" target="_blank">
+          <img
+            src="IMG_20260910_144328_690.jpg"
+            alt="Скриншот 2"
+          >
+        </a>
+
+        <a href="IMG_20260910_144353_764.jpg" target="_blank">
+          <img
+            src="IMG_20260910_144353_764.jpg"
+            alt="Скриншот 3"
+          >
+        </a>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Трейлер</h2>
+
+      <div class="trailer">
+        <video controls preload="metadata">
+          <source
+            src="YouCut_20260911_124924156.mp4"
+            type="video/mp4"
+          >
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
+    </section>
+
+    <section>
+      <h2>Жанры</h2>
+
+      <div class="tags">
+        <div class="tag">Хоррор</div>
+        <div class="tag">Приключение</div>
+        <div class="tag">Выживание</div>
+        <div class="tag">Загадки</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Рейтинг</h2>
+
+      <div class="rating-box">
+        <div class="rating-number">
+          ★ —
         </div>
 
-        <div class="game-content">
-
-          <h3>
-            Oblivion: Closed Forever
-            — Chapter 1: No Visitors
-          </h3>
-
-          <p>
-            Хоррор-приключение в заброшенном
-            развлекательном комплексе.
-          </p>
-
-          <span class="game-status">
-            Дата выхода: октябрь 2026
-          </span>
-
+        <div class="rating-text">
+          Рейтинг пока не установлен
         </div>
-
-      </a>
-
-    </div>
-
-    <div class="no-results" id="noResults">
-      Игры не найдены.
-    </div>
-
-    <div class="about">
-
-      <h2>О C.O Games</h2>
-
-      <p>
-        C.O Games — небольшой каталог игровых проектов,
-        созданных с особым вниманием к атмосфере,
-        сюжету и игровому миру.
-
-        Здесь будут появляться новые игры,
-        трейлеры, скриншоты и информация о разработке.
-      </p>
-
-    </div>
+      </div>
+    </section>
 
   </main>
 
   <footer>
     © 2026 C.O Games
   </footer>
-
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    const gameCards = document.querySelectorAll(".game-card");
-    const noResults = document.getElementById("noResults");
-
-    searchInput.addEventListener("input", function () {
-      const searchText = this.value.toLowerCase().trim();
-      let visibleGames = 0;
-
-      gameCards.forEach(function (card) {
-        const title = card.dataset.title;
-
-        if (title.includes(searchText)) {
-          card.style.display = "block";
-          visibleGames++;
-        } else {
-          card.style.display = "none";
-        }
-      });
-
-      if (visibleGames === 0) {
-        noResults.style.display = "block";
-      } else {
-        noResults.style.display = "none";
-      }
-    });
-  </script>
 
 </body>
 </html>
