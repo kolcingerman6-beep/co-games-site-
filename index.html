@@ -130,6 +130,7 @@
     .cover {
       height: 300px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -158,6 +159,18 @@
           transparent 50%,
           rgba(255,255,255,0.03)
         );
+      pointer-events: none;
+    }
+
+    .chapter {
+      display: block;
+      margin-top: 18px;
+      color: #aeb8c5;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
     }
 
     .game-info {
@@ -285,8 +298,14 @@
 
           <div class="cover">
 
-            OBLIVION:<br>
-            CLOSED FOREVER
+            <div>
+              OBLIVION:<br>
+              CLOSED FOREVER
+            </div>
+
+            <span class="chapter">
+              CHAPTER 1: NO VISITORS
+            </span>
 
           </div>
 
