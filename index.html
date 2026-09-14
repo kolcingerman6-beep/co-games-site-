@@ -215,6 +215,44 @@
       line-height: 1.8;
     }
 
+    .socials {
+      background: #151a22;
+      border: 1px solid #272e38;
+      border-radius: 10px;
+      padding: 30px;
+    }
+
+    .socials h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 6px;
+      background: #202631;
+      border: 1px solid #303846;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      background: #2a3443;
+      border-color: #53647b;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
     footer {
       margin-top: 80px;
       padding: 35px 20px;
@@ -247,6 +285,14 @@
 
       .cover {
         height: 350px;
+      }
+
+      .social-links {
+        flex-direction: column;
+      }
+
+      .social-links a {
+        text-align: center;
       }
     }
   </style>
@@ -349,6 +395,41 @@
           страницы игр, скриншоты, трейлеры,
           описания и другая информация.
         </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- СОЦИАЛЬНЫЕ СЕТИ -->
+
+    <section>
+
+      <div class="socials">
+
+        <h2>
+          Мы в социальных сетях
+        </h2>
+
+        <div class="social-links">
+
+          <a
+            href="https://t.me/+Z9e0uMGlOFMzZjIy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Мы в Telegram
+          </a>
+
+          <a
+            href="https://x.com/Johngnaf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Мы в Twitter
+          </a>
+
+        </div>
 
       </div>
 
